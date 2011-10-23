@@ -4,12 +4,13 @@ all_from 'lib/Data/Monad/CondVar.pm';
 readme_from 'lib/Data/Monad/CondVar.pm';
 
 requires 'AnyEvent';
+requires 'parent';
 requires 'Data::Monad';
 
 tests 't/*.t t/*/*.t';
 author_tests 'xt';
 
-test_requires 'Test::More';
+test_requires 'Test::More' => '0.94';
 test_requires 'Test::Requires';
 auto_set_repository;
 auto_include;
