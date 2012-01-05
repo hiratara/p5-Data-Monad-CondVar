@@ -10,6 +10,9 @@ sub clear_events() {
     cv_unit->sleep(0)->recv;
 }
 
+# Initialize AE to do better leak tests.
+AnyEvent::detect;
+
 no_leaks_ok { cv_unit->sleep(.002)->recv };
 no_leaks_ok { cv_unit->sleep(0)->flat_map(sub { cv_unit })->recv };
 no_leaks_ok { cv_unit->flat_map(sub { cv_unit->sleep(0) })->recv };
