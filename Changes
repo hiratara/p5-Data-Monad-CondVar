@@ -1,5 +1,8 @@
 Revision history for Perl extension Data::Monad
 
+0.03    Thu, 05 Jan 2012
+        - Pass the all tests even if you don't have EV.
+
 0.02    Sun, 23 Oct 2011
         - Add dependencies
 
