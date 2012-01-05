@@ -16,9 +16,9 @@ sub sleep_and_send($@) {
 
 is +(
     cv_map_multi { my $n = 0; $n += $_ for @_; $n }
-                 sleep_and_send(.02 => 2),
-                 sleep_and_send(.0 => 3),
-                 sleep_and_send(.01 => 4),
+                 sleep_and_send(.04 => 2),
+                 sleep_and_send(0 => 3),
+                 sleep_and_send(.02 => 4),
 )->recv, 9;
 
 

@@ -7,7 +7,7 @@ use Test::More;
 sub cv($) {
     my @v = @_;
     my $cv = AE::cv;
-    my $t; $t = AE::timer .001, 0, sub {
+    my $t; $t = AE::timer .002, 0, sub {
         $cv->(@v);
         undef $t;
     };

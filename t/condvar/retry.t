@@ -21,8 +21,8 @@ subtest basic => sub {
 
 subtest pace => sub {
     my $go;
-    cv_unit->sleep(.02)->map(sub { $go++ });
-    is cv_unit->retry(3, .01, sub { $go ? cv_unit "OK" : cv_fail })->recv, 
+    cv_unit->sleep(.04)->map(sub { $go++ });
+    is cv_unit->retry(3, .02, sub { $go ? cv_unit "OK" : cv_fail })->recv, 
        "OK";
 };
 

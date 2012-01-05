@@ -17,7 +17,7 @@ sub cv_after($$) {
 }
 
 is_deeply [cv_sequence(
-    cv_after(2 => 0.03), cv_after(3 => 0.01), cv_after(4 => 0.02)
+    cv_after(2 => 0.06), cv_after(3 => 0.02), cv_after(4 => 0.04)
 )->recv], [2, 3, 4];
 
 done_testing;
