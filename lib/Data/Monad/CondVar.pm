@@ -1,6 +1,7 @@
 package Data::Monad::CondVar;
 use strict;
 use warnings;
+use 5.012;
 use AnyEvent;
 use Scalar::Util;
 use Exporter qw/import/;
