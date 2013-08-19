@@ -17,6 +17,7 @@ auto_include_deps;
 
 resources
     homepage => 'https://github.com/hiratara/p5-Data-Monad-CondVar',
+    repository => 'https://github.com/hiratara/p5-Data-Monad-CondVar.git',
     bugtracker => 'https://github.com/hiratara/p5-Data-Monad-CondVar/issues';
 
 WriteAll;
