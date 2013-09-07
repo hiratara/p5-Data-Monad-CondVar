@@ -1,6 +1,8 @@
 Revision history for Perl extension Data::Monad::CondVar
 
 {{$NEXT}}
+
+0.05  2013-09-08 00:29:47 JST
         - Use the latest version of Data::Monad to avoid bugs on perl 5.17.2
 
 0.04    Tue, 26 Jun 2012 

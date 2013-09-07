@@ -43,7 +43,7 @@
       "runtime" : {
          "requires" : {
             "AnyEvent" : "0",
-            "Data::Monad" : "0",
+            "Data::Monad" : "0.05",
             "parent" : "0",
             "perl" : "v5.12.0"
          }
@@ -61,6 +61,6 @@
          "web" : "https://github.com/hiratara/p5-Data-Monad-CondVar"
       }
    },
-   "version" : "0.04"
+   "version" : "0.05"
 }
 
