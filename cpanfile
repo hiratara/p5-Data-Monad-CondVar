@@ -1,5 +1,5 @@
 requires 'AnyEvent';
-requires 'Data::Monad';
+requires 'Data::Monad', '0.05';
 requires 'parent';
 requires 'perl', 'v5.12.0';
 
