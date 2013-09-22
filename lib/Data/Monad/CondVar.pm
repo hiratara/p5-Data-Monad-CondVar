@@ -471,6 +471,12 @@ hiratara E<lt>hiratara {at} cpan.orgE<gt>
 
 L<Data::Monad::Base::Monad>
 
+L<AnyEvent>
+
+L<Promises>
+
+L<Future>
+
 =head1 LICENSE
 
 This library is free software; you can redistribute it and/or modify
