@@ -165,6 +165,12 @@ hiratara <hiratara {at} cpan.org>
 
 [Data::Monad::Base::Monad](http://search.cpan.org/perldoc?Data::Monad::Base::Monad)
 
+[AnyEvent](http://search.cpan.org/perldoc?AnyEvent)
+
+[Promises](http://search.cpan.org/perldoc?Promises)
+
+[Future](http://search.cpan.org/perldoc?Future)
+
 # LICENSE
 
 This library is free software; you can redistribute it and/or modify
