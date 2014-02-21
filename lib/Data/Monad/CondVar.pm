@@ -156,12 +156,24 @@ sub canceler {
     $cv->{_monad_canceler};
 }
 
+sub _add_cb {
+    my ($self, $cb) = @_;
+    if(my $old_cb = $self->cb) {
+        $self->cb(sub {
+            $old_cb->(@_);
+            $cb->(@_);
+        });
+    } else {
+        $self->cb($cb);
+    }
+}
+
 sub flat_map {
     my ($self, $f) = @_;
 
     my $cv_bound = AE::cv;
     my $cv_current = $self;
-    $self->cb(sub {
+    $self->_add_cb(sub {
         my $cv = $cv_current = eval {
             my ($cv) = $f->($_[0]->recv);
             _cv_or_die $cv;
@@ -190,7 +202,7 @@ sub or {
     my ($self, $alter) = @_;
 
     my $cv_mixed = AE::cv;
-    $self->cb(sub {
+    $self->_add_cb(sub {
         my @v = eval { $_[0]->recv };
         unless ($@) {
             $cv_mixed->(@v);
@@ -215,7 +227,7 @@ sub catch {
 
     my $result_cv = AE::cv;
     my $active_cv = $self;
-    $self->cb(sub {
+    $self->_add_cb(sub {
         my @v = eval { $_[0]->recv };
         my $exception = $@ or return $result_cv->(@v);
 
