@@ -1,6 +1,7 @@
 Revision history for Perl module Data::Monad::CondVar
 
 {{$NEXT}}
+    - Allow multiple calls of flat_map for $cv (by yak1ex)
 
 0.05  2013-09-08 00:29:47 JST
     - Use the latest version of Data::Monad to avoid bugs on perl 5.17.2
