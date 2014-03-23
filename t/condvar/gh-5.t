@@ -28,4 +28,28 @@ $cv = cv_unit()->sleep(1)->flat_map(sub { cv_fail('Fail') });
 
 is_deeply(\@ret, [[2], [2]], 'catch 2 times');
 
+$cv = cv_unit("OK")->sleep(1);
+@ret = AnyEvent::CondVar->all(
+    $cv->map(sub { $_[0] x 2 }),
+    cv_unit()->flat_map(sub { $cv }),
+)->recv;
+
+is_deeply \@ret, [["OKOK"], ["OK"]], 'Call cb() 2 times on inner flat_map';
+
+$cv = cv_unit("OK")->sleep(1);
+@ret = AnyEvent::CondVar->all(
+    $cv->map(sub { $_[0] x 2 }),
+    cv_fail()->or($cv),
+)->recv;
+
+is_deeply \@ret, [["OKOK"], ["OK"]], 'Call cb() 2 times on inner or';
+
+$cv = cv_unit("OK")->sleep(1);
+@ret = AnyEvent::CondVar->all(
+    $cv->map(sub { $_[0] x 2 }),
+    cv_fail()->catch(sub { $cv }),
+)->recv;
+
+is_deeply \@ret, [["OKOK"], ["OK"]], 'Call cb() 2 times on inner catch';
+
 done_testing;

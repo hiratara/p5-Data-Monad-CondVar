@@ -184,7 +184,7 @@ sub flat_map {
             _assert_cv $cv_bound;
             return $cv_bound->croak($@);
         }
-        $cv->cb(sub {
+        $cv->_add_cb(sub {
             my @v = eval { $_[0]->recv };
             _assert_cv $cv_bound;
             $@ ? $cv_bound->croak($@) : $cv_bound->send(@v);
@@ -207,7 +207,7 @@ sub or {
         unless ($@) {
             $cv_mixed->(@v);
         } elsif ($@ =~ /\Q$ZERO\E/) {
-            $alter->cb(sub {
+            $alter->_add_cb(sub {
                 my @v = eval { $_[0]->recv };
                 _assert_cv $cv_mixed;
                 $@ ? $cv_mixed->croak($@) : $cv_mixed->(@v);
@@ -238,7 +238,7 @@ sub catch {
         };
         $@ and return (_assert_cv $result_cv)->croak($@);
 
-        $cv->cb(sub {
+        $cv->_add_cb(sub {
             my @v = eval { $_[0]->recv };
             _assert_cv $result_cv;
             $@ ? $result_cv->croak($@) : $result_cv->send(@v);
