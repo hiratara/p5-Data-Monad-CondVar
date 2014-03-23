@@ -55,8 +55,8 @@ This module is marked __EXPERIMENTAL__. API could be changed without any notice.
         sub myname {
             my $uc = shift;
 
-          return call_cc {
-              my $cont = shift;
+            return call_cc {
+                my $cont = shift;
 
                 cv_unit("hiratara")->flat_map(sub {
                     return $cont->(@_) unless $uc; # escape from an inner block
@@ -71,11 +71,11 @@ This module is marked __EXPERIMENTAL__. API could be changed without any notice.
 - unit
 - flat\_map
 
-    Overrides methods of [Data::Monad::Base::Monad](http://search.cpan.org/perldoc?Data::Monad::Base::Monad).
+    Overrides methods of [Data::Monad::Base::Monad](https://metacpan.org/pod/Data::Monad::Base::Monad).
 
 - zero
 
-    Overrides methods of [Data::Monad::Base::MonadZero](http://search.cpan.org/perldoc?Data::Monad::Base::MonadZero).
+    Overrides methods of [Data::Monad::Base::MonadZero](https://metacpan.org/pod/Data::Monad::Base::MonadZero).
     It uses `fail` method internally.
 
 - $cv = AnyEvent::CondVar->fail($msg)
@@ -163,13 +163,13 @@ hiratara <hiratara {at} cpan.org>
 
 # SEE ALSO
 
-[Data::Monad::Base::Monad](http://search.cpan.org/perldoc?Data::Monad::Base::Monad)
+[Data::Monad::Base::Monad](https://metacpan.org/pod/Data::Monad::Base::Monad)
 
-[AnyEvent](http://search.cpan.org/perldoc?AnyEvent)
+[AnyEvent](https://metacpan.org/pod/AnyEvent)
 
-[Promises](http://search.cpan.org/perldoc?Promises)
+[Promises](https://metacpan.org/pod/Promises)
 
-[Future](http://search.cpan.org/perldoc?Future)
+[Future](https://metacpan.org/pod/Future)
 
 # LICENSE
 
