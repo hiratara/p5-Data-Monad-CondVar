@@ -6,7 +6,7 @@ use AnyEvent;
 use Scalar::Util;
 use Exporter qw/import/;
 
-our $VERSION = "0.05";
+our $VERSION = "0.06";
 our @EXPORT = qw/as_cv cv_unit cv_zero cv_fail cv_flat_map_multi cv_map_multi
                  cv_sequence call_cc/;
 
